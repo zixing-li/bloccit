@@ -31,3 +31,20 @@
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
+ 
+ unique_post = Post.find_or_create_by!(
+     title: 'Unique post title',
+     body: 'Unique post body'
+ )
+ puts "Idempotence Post Seed finished"
+ puts unique_post.title
+ puts unique_post.body
+ 
+  unique_comment = Comment.find_or_create_by!(
+     post: unique_post,
+     body: 'Unique comment body'
+ )
+ puts "Idempotence Comment Seed finished"
+ puts unique_comment.post.title
+ puts unique_comment.post.body
+ puts unique_comment.body
