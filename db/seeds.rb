@@ -24,18 +24,18 @@ posts = Post.all
   )
 end
 
-#post = Post.find_or_create_by( title: 'This is a unique post', body: 'It will only be created once' );
-#Comment.find_or_create_by( post: post, body: 'This is a unique comment' )
-
-50.times do
-  Advertisement.create!(
+100.times do
+  Question.create!(
     title: RandomData.random_sentence,
-    copy: RandomData.random_paragraph,
-    price: RandomData.random_integer
+    body: RandomData.random_paragraph,
+    resolved: false
   )
 end
+
+#post = Post.find_or_create_by( title: 'This is a unique post', body: 'It will only be created once' );
+#Comment.find_or_create_by( post: post, body: 'This is a unique comment' )
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
-puts "#{Advertisement.count} comments created"
+puts "#{Question.count} questions created"
